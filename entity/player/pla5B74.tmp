@@ -1,0 +1,123 @@
+[gd_scene load_steps=16 format=3 uid="uid://dpw7x7jo72v4f"]
+
+[ext_resource type="Script" path="res://entity/player/player.gd" id="1_4aikh"]
+[ext_resource type="Texture2D" uid="uid://ccoj3qckttaw2" path="res://assets/player.png" id="2_3xpos"]
+[ext_resource type="Texture2D" uid="uid://bdqgtwrvewx7w" path="res://assets/player/arm/arm.png" id="2_fs1xe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdfl3"]
+atlas = ExtResource("2_fs1xe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o5t3n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdfl3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgqoo"]
+atlas = ExtResource("2_3xpos")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfm6d"]
+atlas = ExtResource("2_3xpos")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6s7h8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgqoo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfm6d")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ebjf"]
+size = Vector2(4, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_run2e"]
+size = Vector2(12, 19)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1p15"]
+bg_color = Color(0, 0, 0, 0.47451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8tcs"]
+bg_color = Color(0.984314, 0.34902, 0.533333, 1)
+
+[sub_resource type="Theme" id="Theme_i788l"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_a1p15")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_i8tcs")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upobr"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_ysuv7"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_a1p15")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_upobr")
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_4aikh")
+metadata/_edit_group_ = true
+
+[node name="Arm" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_o5t3n")
+animation = &"idle"
+offset = Vector2(1, 3)
+
+[node name="Body" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6s7h8")
+animation = &"idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_2ebjf")
+
+[node name="PickupArea" type="Area2D" parent="."]
+visible = false
+monitorable = false
+
+[node name="Collision" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_run2e")
+debug_color = Color(0.835294, 0.34902, 0.466667, 0.419608)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -7.0
+offset_top = -11.0
+offset_right = 7.0
+offset_bottom = -10.0
+theme = SubResource("Theme_i788l")
+max_value = 120.0
+value = 120.0
+rounded = true
+show_percentage = false
+
+[node name="StaminaBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -7.0
+offset_top = -10.0
+offset_right = 7.0
+offset_bottom = -9.0
+theme = SubResource("Theme_ysuv7")
+max_value = 120.0
+value = 120.0
+rounded = true
+show_percentage = false

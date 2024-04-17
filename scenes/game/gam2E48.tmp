@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://fedeq86jyt0k"]
+
+[ext_resource type="PackedScene" uid="uid://dpw7x7jo72v4f" path="res://entity/player/player.tscn" id="1_jm4sx"]
+[ext_resource type="Texture2D" uid="uid://d3vqmnhm2wbiq" path="res://icon.svg" id="2_w3bue"]
+[ext_resource type="PackedScene" uid="uid://57reo7ysrk3f" path="res://entity/drop/weapon_drop.tscn" id="3_cghri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t337t"]
+size = Vector2(128, 128)
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jm4sx")]
+position = Vector2(279, 181)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, 12)
+scale = Vector2(1.15858, 1.3093)
+zoom = Vector2(4, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(261, 308)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_t337t")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_w3bue")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(554, 420)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_t337t")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("2_w3bue")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(390, 308)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_t337t")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+texture = ExtResource("2_w3bue")
+
+[node name="Drop" parent="." instance=ExtResource("3_cghri")]
+position = Vector2(359, 239)
+
+[node name="Drop2" parent="." instance=ExtResource("3_cghri")]
+position = Vector2(432, 239)
+
+[node name="Drop3" parent="." instance=ExtResource("3_cghri")]
+position = Vector2(421, 239)

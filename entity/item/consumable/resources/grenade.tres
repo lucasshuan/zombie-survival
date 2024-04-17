@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=5 format=3 uid="uid://cxx6jso5dcgb2"]
+
+[ext_resource type="SpriteFrames" uid="uid://bstg4b0xjpteg" path="res://entity/player/resources/animations/arm_grenade.tres" id="1_v73aj"]
+[ext_resource type="Texture2D" uid="uid://chpeprruqdyjv" path="res://entity/item/consumable/assets/drop_grenade.png" id="2_hmdc4"]
+[ext_resource type="Texture2D" uid="uid://vn6xxvsq3drf" path="res://entity/item/consumable/assets/icon_grenade.png" id="3_sy1vi"]
+[ext_resource type="Script" path="res://entity/item/consumable/consumable.gd" id="4_l7vki"]
+
+[resource]
+script = ExtResource("4_l7vki")
+amount = 3
+slot = 2
+name = "Grenades"
+arm_sprite_frames = ExtResource("1_v73aj")
+drop_sprite_texture = ExtResource("2_hmdc4")
+icon_sprite_texture = ExtResource("3_sy1vi")

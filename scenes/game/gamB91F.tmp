@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://fedeq86jyt0k"]
+
+[ext_resource type="PackedScene" uid="uid://dpw7x7jo72v4f" path="res://entity/player/player.tscn" id="1_jm4sx"]
+[ext_resource type="Texture2D" uid="uid://d3vqmnhm2wbiq" path="res://icon.svg" id="2_w3bue"]
+[ext_resource type="PackedScene" uid="uid://57reo7ysrk3f" path="res://entity/drop/weapon_drop.tscn" id="3_cghri"]
+[ext_resource type="Script" path="res://scripts/weapon/melee_weapon.gd" id="4_n228q"]
+[ext_resource type="Script" path="res://scripts/weapon/primary_weapon.gd" id="5_gqp2h"]
+[ext_resource type="Script" path="res://scripts/weapon/consumable.gd" id="6_m2tgf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t337t"]
+size = Vector2(128, 128)
+
+[sub_resource type="Resource" id="Resource_fedam"]
+script = ExtResource("4_n228q")
+name = "Teste"
+
+[sub_resource type="Resource" id="Resource_go8sy"]
+script = ExtResource("5_gqp2h")
+damage = 1.0
+fire_rate = 1.0
+mag_size = 6
+mag_quantity = 2
+is_automatic = false
+reload_duration = 1.0
+name = ""
+
+[sub_resource type="Resource" id="Resource_f0sp4"]
+script = ExtResource("6_m2tgf")
+amount = 1
+name = ""
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jm4sx")]
+position = Vector2(279, 181)
+speed = null
+run_speed = null
+exhausted_speed = null
+acceleration = null
+friction = null
+jump_velocity = null
+acceleration_on_air = null
+health = null
+stamina = null
+jump_stamina_loss = null
+run_stamina_loss_rate = null
+stamina_recovery_rate = null
+exhausted_stamina_recovery_rate = null
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, 12)
+scale = Vector2(1.15858, 1.3093)
+zoom = Vector2(4, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(261, 308)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_t337t")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_w3bue")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(554, 420)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_t337t")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("2_w3bue")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(390, 308)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_t337t")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+texture = ExtResource("2_w3bue")
+
+[node name="Drop" parent="." instance=ExtResource("3_cghri")]
+position = Vector2(359, 239)
+weapon = SubResource("Resource_fedam")
+
+[node name="Drop2" parent="." instance=ExtResource("3_cghri")]
+position = Vector2(432, 239)
+weapon = SubResource("Resource_go8sy")
+
+[node name="Drop3" parent="." instance=ExtResource("3_cghri")]
+position = Vector2(421, 239)
+weapon = SubResource("Resource_f0sp4")

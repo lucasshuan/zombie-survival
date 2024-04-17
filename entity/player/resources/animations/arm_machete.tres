@@ -1,0 +1,37 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bp2dvcdrifxcc"]
+
+[ext_resource type="Texture2D" uid="uid://bpqrns4frjj26" path="res://entity/player/assets/arm/arm_machete.png" id="1_aacou"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmt15"]
+atlas = ExtResource("1_aacou")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12fp1"]
+atlas = ExtResource("1_aacou")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43gnh"]
+atlas = ExtResource("1_aacou")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmt15")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12fp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43gnh")
+}],
+"loop": true,
+"name": &"use",
+"speed": 5.0
+}]

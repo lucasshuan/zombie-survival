@@ -1,0 +1,149 @@
+[gd_scene load_steps=11 format=3 uid="uid://b1va018wg0aje"]
+
+[ext_resource type="Script" path="res://scenes/gui/gui.gd" id="1_i7wu7"]
+[ext_resource type="StyleBox" uid="uid://dc7aujb75165p" path="res://scenes/gui/ui/active_slot_style.tres" id="2_md72s"]
+[ext_resource type="FontFile" uid="uid://sx8h4k8t1576" path="res://common/ui/CONSOLA.TTF" id="3_b3x7t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p835"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="Theme" id="Theme_wcvex"]
+Panel/styles/panel = SubResource("StyleBoxFlat_1p835")
+
+[sub_resource type="FontVariation" id="FontVariation_cx8ap"]
+base_font = ExtResource("3_b3x7t")
+
+[sub_resource type="Theme" id="Theme_4it7n"]
+default_font = SubResource("FontVariation_cx8ap")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oodlq"]
+bg_color = Color(0, 0, 0, 0.513726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2jw0"]
+bg_color = Color(0.976471, 0, 0.223529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yibba"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="GUI" type="CanvasLayer" node_paths=PackedStringArray("melee_slot_box", "primary_slot_box", "tertiary_slot_box", "health_bar", "stamina_bar")]
+script = ExtResource("1_i7wu7")
+melee_slot_box = NodePath("Equippables/MeleeWeapon")
+primary_slot_box = NodePath("Equippables/PrimaryWeapon")
+tertiary_slot_box = NodePath("Equippables/Consumable")
+active_slot_panel_stylebox = ExtResource("2_md72s")
+health_bar = NodePath("HealthBar")
+stamina_bar = NodePath("StaminaBar")
+
+[node name="Equippables" type="HBoxContainer" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 238.0
+offset_bottom = 84.0
+
+[node name="MeleeWeapon" type="Panel" parent="Equippables"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_wcvex")
+
+[node name="Icon" type="TextureRect" parent="Equippables/MeleeWeapon"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PrimaryWeapon" type="Panel" parent="Equippables"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_wcvex")
+
+[node name="Icon" type="TextureRect" parent="Equippables/PrimaryWeapon"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Equippables/PrimaryWeapon"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -21.0
+offset_right = -6.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_4it7n")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Consumable" type="Panel" parent="Equippables"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_wcvex")
+
+[node name="Icon" type="TextureRect" parent="Equippables/Consumable"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Equippables/Consumable"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -21.0
+offset_right = -6.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_4it7n")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -270.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 39.0
+grow_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_oodlq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_a2jw0")
+show_percentage = false
+
+[node name="StaminaBar" type="ProgressBar" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -270.0
+offset_top = 43.0
+offset_right = -16.0
+offset_bottom = 66.0
+grow_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_oodlq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yibba")
+show_percentage = false
