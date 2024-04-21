@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://bs637c2f7xb1p"]
+
+[ext_resource type="Texture2D" uid="uid://bsfsipw146bai" path="res://assets/spritesheets/player/arm/arm_pistol.png" id="1_bdh0n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1ova"]
+atlas = ExtResource("1_bdh0n")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjmok"]
+atlas = ExtResource("1_bdh0n")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1ova")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjmok")
+}],
+"loop": true,
+"name": &"use",
+"speed": 5.0
+}]

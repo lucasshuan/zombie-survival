@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://fedeq86jyt0k"]
+[gd_scene load_steps=14 format=3 uid="uid://fedeq86jyt0k"]
 
 [ext_resource type="TileSet" uid="uid://tq38ly368cm1" path="res://resources/tilesets/background_tileset.tres" id="1_e0cxl"]
 [ext_resource type="PackedScene" uid="uid://dpw7x7jo72v4f" path="res://entities/player/player.tscn" id="1_jm4sx"]
@@ -10,7 +10,10 @@
 [ext_resource type="Resource" uid="uid://nxjov2vwx7s2" path="res://resources/weapons/pistol.tres" id="5_5hijd"]
 [ext_resource type="Resource" uid="uid://cxfckvhwwwg5n" path="res://resources/weapons/machete.tres" id="6_drukc"]
 [ext_resource type="PackedScene" uid="uid://c6526jfg4elqx" path="res://entities/enemy/enemy.tscn" id="10_6wkur"]
+[ext_resource type="PackedScene" uid="uid://b4r2op215knmw" path="res://entities/blood/surface.tscn" id="12_lc8rx"]
 [ext_resource type="Script" path="res://scenes/game/camera.gd" id="14_si6lr"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_7tic1"]
 
 [node name="Game" type="Node2D"]
 
@@ -63,3 +66,9 @@ layer_0/tile_data = PackedInt32Array(1048598, 65538, 0, 1048599, 65538, 0, 10486
 [node name="Enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_6wkur")]
 position = Vector2(428, 236)
 player = NodePath("../Player")
+
+[node name="Surface" parent="." instance=ExtResource("12_lc8rx")]
+position = Vector2(748.22, 256)
+scale = Vector2(-598.711, 102.725)
+texture = SubResource("ImageTexture_7tic1")
+region_rect = Rect2(20, 20, 20, 20)

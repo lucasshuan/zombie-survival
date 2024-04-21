@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/gui/gui.gd" id="1_i7wu7"]
 [ext_resource type="StyleBox" uid="uid://dc7aujb75165p" path="res://scenes/gui/ui/active_slot_style.tres" id="2_md72s"]
-[ext_resource type="FontFile" uid="uid://sx8h4k8t1576" path="res://common/ui/CONSOLA.TTF" id="3_b3x7t"]
+[ext_resource type="FontFile" uid="uid://sx8h4k8t1576" path="res://ui/CONSOLA.TTF" id="3_b3x7t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p835"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

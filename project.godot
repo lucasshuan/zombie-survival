@@ -17,6 +17,10 @@ config/icon="res://icon.svg"
 run/dynamic_fonts/use_oversampling=true
 run/snap_controls_to_pixels=true
 
+[autoload]
+
+Surface="*res://entities/blood/surface.gd"
+
 [display]
 
 window/size/viewport_width=1162

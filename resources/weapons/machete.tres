@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Melee" load_steps=5 format=3 uid="uid://cxfckvhwwwg5n"]
+
+[ext_resource type="SpriteFrames" uid="uid://bp2dvcdrifxcc" path="res://resources/animations/player/arm_machete.tres" id="1_2hec1"]
+[ext_resource type="Texture2D" uid="uid://cnew3us06r3s5" path="res://assets/sprites/loot/loot_machete.png" id="1_dlej1"]
+[ext_resource type="Texture2D" uid="uid://v5dculuvg61l" path="res://assets/sprites/icon/icon_machete.png" id="1_kudn3"]
+[ext_resource type="Script" path="res://entities/item/weapon/melee.gd" id="4_a6obw"]
+
+[resource]
+script = ExtResource("4_a6obw")
+attack_damage = 0.0
+durability = 100.0
+attack_speed = 0.0
+slot = 0
+arm_sprite_frames = ExtResource("1_2hec1")
+icon_sprite_texture = ExtResource("1_kudn3")
+name = "Machete"
+loot_sprite_texture = ExtResource("1_dlej1")

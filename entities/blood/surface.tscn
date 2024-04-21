@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4r2op215knmw"]
+
+[ext_resource type="Script" path="res://entities/blood/surface.gd" id="1"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_k33ha"]
+
+[node name="BloodSurface" type="Sprite2D"]
+z_index = 4096
+texture = SubResource("ImageTexture_k33ha")
+centered = false
+script = ExtResource("1")

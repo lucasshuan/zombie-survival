@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://57reo7ysrk3f"]
+
+[ext_resource type="Script" path="res://entities/loot/loot.gd" id="1_05vi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrvb7"]
+size = Vector2(9, 2)
+
+[node name="Loot" type="RigidBody2D" node_paths=PackedStringArray("sprite", "collision")]
+collision_layer = 4
+script = ExtResource("1_05vi4")
+sprite = NodePath("Sprite")
+collision = NodePath("Collision")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jrvb7")
